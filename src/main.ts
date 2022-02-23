@@ -3,14 +3,8 @@ import {
   Clock,
   CubeTextureLoader,
   DirectionalLight,
-  Mesh,
-  MeshStandardMaterial,
-  ObjectLoader,
   PerspectiveCamera,
-  PlaneBufferGeometry,
-  PlaneGeometry,
   Scene,
-  TextureLoader,
   WebGLRenderer,
 } from 'three'
 import { Boid } from './Boid'

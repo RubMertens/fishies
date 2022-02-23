@@ -1,7 +1,5 @@
 import {
-  BoxBufferGeometry,
   BufferGeometry,
-  ConeBufferGeometry,
   Group,
   Line,
   LineBasicMaterial,
@@ -11,7 +9,6 @@ import {
   Object3D,
   Scene,
   SphereBufferGeometry,
-  sRGBEncoding,
   Vector3,
 } from 'three'
 import { EntityTracker } from './EntityTracker'
@@ -81,7 +78,8 @@ export class Boid implements IEntity {
 
   public checkBounds() {
     const maxDist = 300
-    const axes: (keyof Vector3)[] = ['x', 'z']
+    const axes: (keyof Pick<Vector3, 'x' | 'z'>)[] = ['x', 'z']
+
     axes.forEach((a) => {
       if (this.group.position[a] > maxDist) this.group.position[a] = -maxDist
       if (this.group.position[a] < -maxDist) this.group.position[a] = maxDist
